@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "Insira o link do arquivo a ser extraído: "
+read file1
+
+wget $file1
+
+dtrx $file1 
+
+echo "Arquivo descompactado" 
+  
