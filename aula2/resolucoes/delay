@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo "Digite o ano (2006 ou 2007)"
+  read num1
+if [ $num1 -eq 2006 ]
+then
+echo "O número de voos que chegaram atrasados em 2006:"
+csvcut -c 15 2006 | csvgrep --c 1 --regex "^[:1-9:]" > 2006_teste
+wc -l 2006_teste
+echo "O número de voos que saíram atrasados em 2006:"
+csvcut -c 16 2006 | csvgrep --c 1 --regex "^[:1-9:]" > 2006_teste
+wc -l 2006_teste
+elif [ $num1 -eq 2007 ]
+then
+echo "O número de voos que chegaram atrasados em 2007:"
+csvcut -c 15 2007 | csvgrep --c 1 --regex "^[:1-9:]" > 2007_teste
+wc -l 2007_teste
+echo "O número de voos que saíram atrasados em 2007:"
+csvcut -c 16 2007 | csvgrep --c 1 --regex "^[:1-9:]" > 2007_teste
+wc -l 2007_teste
+else
+echo "O ano digitado é inválido!"
+fi
