@@ -1,0 +1,26 @@
+#!/bin/bash
+
+#Descompactar e abrir o arquivo
+bziph2 <file_name.tar.bzh2> 
+mv <file_name.tar> <file_name>
+
+
+#Biblioteca para manipular os dados
+pip install csvkit
+head -n 10 2006 | csvlook
+csvcut -n 2006	
+
+
+#Manipulação e mapemaento dos dados
+head -10 2006 | csvcut -c 10,15,16 | csvlook
+head -10 2006 | csvcut -c FlightNum,ArrDelay,DepDelay | csvlook
+head -1000 2006 | csvcut -c 10,15,16 | csvgrep --c 2,3 --regex "^[:1-9:]" > 2006_teste
+
+
+#Somatório de linhas (numero de vôos):
+wc -l 2006_teste
+
+
+
+
+
